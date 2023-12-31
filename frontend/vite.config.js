@@ -9,4 +9,11 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  define: {
+    "process.env": process.env,
+  },
+  server: {
+    host: "127.0.0.1",
+    port: 5173,
+  },
 });

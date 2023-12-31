@@ -10,6 +10,8 @@ from django.conf import settings
 
 from .permissions import IsUnauthenticated
 
+from pprint import pprint
+
 
 @api_view(["POST"])
 @permission_classes([IsUnauthenticated])
@@ -50,16 +52,16 @@ def handle_login(request):
         response.set_cookie(
             key="access_token",
             value=access_token,
-            httponly=True,
+            httponly=False,
             secure=True,
-            samesite="None",
+            samesite="Strict",
             path="/",
             expires=access_token_exp,
         )
         response.set_cookie(
             key="refresh_token",
             value=refresh_token,
-            httponly=True,
+            httponly=False,
             secure=True,
             samesite="None",
             path="/",
@@ -69,9 +71,9 @@ def handle_login(request):
         response.set_cookie(
             key="rememberMe",
             value="true",
-            httponly=True,
+            httponly=False,
             secure=True,
-            samesite="None",
+            samesite="Strict",
             path="/",
             expires=None,
         )
