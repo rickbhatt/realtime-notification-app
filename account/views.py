@@ -63,7 +63,7 @@ def handle_login(request):
             value=refresh_token,
             httponly=False,
             secure=True,
-            samesite="None",
+            samesite="Strict",
             path="/",
             expires=refresh_token_exp,
         )
@@ -114,7 +114,7 @@ def handle_token_refresh(request):
             value=access_token,
             httponly=True,
             secure=True,
-            samesite="None",
+            samesite="Strict",
             path="/",
             expires=access_token_exp,
         )
@@ -123,7 +123,7 @@ def handle_token_refresh(request):
             value=refresh_token,
             httponly=True,
             secure=True,
-            samesite="None",
+            samesite="Strict",
             path="/",
             expires=refresh_token_exp,
         )
